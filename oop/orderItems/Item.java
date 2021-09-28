@@ -1,4 +1,7 @@
 public class Item {
-    public String name;
-    public double price;
+    private int index;
+    private String name;
+    private double price;
+
+
 }
