@@ -1,6 +1,9 @@
 
 public class Gorilla extends Mammal{
-
+	
+	public Gorilla() {
+		super();
+	}
 	
 // methods
 	public void throwSomething() {
@@ -20,6 +23,4 @@ public class Gorilla extends Mammal{
 		reduceEnergy(10);
 		displayEnergy();
 	}
-	
-	
 }
