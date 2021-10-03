@@ -7,6 +7,15 @@ public class LivingThing {
 	protected int strength;
 	protected int speed; 
 
+//constructor
+	public LivingThing(int health, int energy, int strenght, int speed) {
+		this.health = health;
+		this.energy = energy;
+		this.strength = strenght;
+		this.speed = speed;
+	}
+	
+	
 //methods
 	public void attack(String isAttacked, int strength, Monster monster) {
 		monster.getHealth();
@@ -14,7 +23,7 @@ public class LivingThing {
 	}
 	
 	
-// getters & setters
+// getters
 	public int getHealth() {
 		return health;
 	}
@@ -24,10 +33,10 @@ public class LivingThing {
 	public int getEnergy() {
 		return energy;
 	}
-		public int getSpeed() {
+	public int getSpeed() {
 		return speed;
 	}
-	
+// setters
 	public void setHealth(int health) {
 		this.health = health;
 	}
