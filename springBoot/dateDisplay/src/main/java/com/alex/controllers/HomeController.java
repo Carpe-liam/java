@@ -18,7 +18,7 @@ public class HomeController {
 	@RequestMapping("/date")
 	public String date(Model model) {
 		LocalDateTime time = LocalDateTime.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("c, dd MMMM, yyyy");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("c, dd MMMM, yyyy - hh:mm a");
 		String datetime = time.format(formatter);
 		model.addAttribute("date", datetime);
 		return "date.jsp";

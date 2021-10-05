@@ -15,8 +15,8 @@
 		<div>
 			<h2>Your Gold: </h2>
 		</div>
-		<div class="border border-dark col-1 ms-2">
-			<c:out value="${ninjaGold}"/>
+		<div class="border bg-dark text-warning border-warning text-center col-1 ms-2">
+			<h2><c:out value="${ninjaGold}"/></h2>
 		</div>
 	</div>
 	<div class="m-2">
@@ -55,9 +55,9 @@
 	<div class="text-center my-3">
 		<h1>Activities</h1>
 		<hr/>
-		<div class="text-center text-dark">
+		<div class="mx-auto overflow-auto text-center border border dark rounded" style="width:600px; height:150px;">
 			<c:forEach var="activity" items="${activityList}">
-				<p> <c:out value="${activity.name}"/>  </p>
+				<p> <c:out value="${activity.name}"/></p>
 			</c:forEach>
 		</div>
 	</div>
