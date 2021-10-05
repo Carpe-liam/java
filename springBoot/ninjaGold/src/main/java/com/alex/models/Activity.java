@@ -2,7 +2,7 @@ package com.alex.models;
 
 public class Activity {
 // member variables
-	public String name;
+	private String name;
 
 
 // constructor
@@ -10,12 +10,12 @@ public class Activity {
 		this.name = actParam;
 	}
 // Getters
-	public String getActivity() {
+	public String getName() {
 		 return name;
 	}
 	
 // Setters
-	public void setActivity(String actParam) {
+	public void setName(String actParam) {
 		this.name = actParam;
 	}
 }
