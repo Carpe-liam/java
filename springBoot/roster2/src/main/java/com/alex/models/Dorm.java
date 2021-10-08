@@ -21,10 +21,10 @@ public class Dorm {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
     @NotNull
     @Size(min=2)
     private String name;
-
     
     @Column(updatable=false)
     private Date createdAt;
@@ -72,14 +72,15 @@ public class Dorm {
 		this.updatedAt = updatedAt;
 	}
 
-	public List<Student> getStudent() {
+	public List<Student> getStudents() {
 		return students;
 	}
 
-	public void setStudent(List<Student> students) {
+	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
-	
+
+
 	
 	
 }

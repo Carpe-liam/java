@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.alex.models.Dorm;
 import com.alex.models.Student;
@@ -38,7 +39,6 @@ public class DormController {
 		return "index.jsp";
 	}
 
-	
 	@PostMapping("/dorms/new")
 	public String createDorm(@Valid @ModelAttribute("dorm")Dorm dorm, BindingResult result) {
 		if(result.hasErrors()) {
@@ -49,22 +49,21 @@ public class DormController {
 		}
 	}
 	
-
 	@RequestMapping("/dorm/view/{id}")
-	public String viewDrom(Model model, @PathVariable("id")Long id, @ModelAttribute("studentAdd")Student student) {
+	public String viewDorm(Model model, @PathVariable("id")Long id) {
 		Dorm dorm = dormService.findDorm(id);
 		model.addAttribute("dorm", dorm);
+		ArrayList<Student> students = studentService.allStudents();
+		model.addAttribute("students", students);
+		System.out.println(dorm.getStudents());
 		return "view.jsp";
 	}
 	
-//	@PostMapping("/dorm/add_student")
-//	public String addToDorm(@Valid @ModelAttribute("studentAdd")Long id, BindingResult result) {
-//		if(result.hasErrors()) {
-//			return "view.jsp";
-//		} else {
-//		//	dormService.addStudent(id);
-//			return "redirect:/dorms";
-//		}
-//	}
+	@PostMapping("/dorm/add_student")
+	public String addToDorm(@RequestParam(value="id")Long id,@RequestParam(value="dorm_id")Long dorm_id) {
+		Dorm dorm = dormService.findDorm(dorm_id);
+		studentService.updateStudentDorm(dorm, id);
+		return "redirect:/dorm/view/"+dorm.getId();
+	}
 	
 }

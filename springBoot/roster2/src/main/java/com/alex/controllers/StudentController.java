@@ -20,13 +20,5 @@ public class StudentController {
 	@Autowired
 	StudentService studentService;
 	
-	@PostMapping("/student/new")
-	public String createStudent(@Valid @ModelAttribute("student")Student student, BindingResult result) {
-		if(result.hasErrors()) {
-			return "index.jsp";
-		} else {
-			studentService.createStudent(student);
-			return "redirect:/dorms";
-		}
-	}
+
 }

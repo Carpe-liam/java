@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body class="bg-dark text-light">
+<body class="">
 <div class="container">
 	<nav>
 		<h1>Dorms</h1>

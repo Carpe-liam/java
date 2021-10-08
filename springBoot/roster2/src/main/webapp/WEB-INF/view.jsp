@@ -12,25 +12,27 @@
 </head>
 <body>
 <div class="container col-10 mx-auto">
-	<nav class="d-flex justify-content-between">
+	<nav class="d-flex justify-content-between mt-3">
 		<h2>${dorm.name}</h2>
 		<div>
 			<a class="btn btn-primary" href="/dorms">Back</a>
 		</div>
 	</nav>
 	
-	
-	<form:form action="/dorm/add_student" method="post" modelAttribute="studentAdd">
-		<form:select path="students">
-			<c:forEach var="oneStudent" items="${students}">
-				<form:option value="${oneStudent.id}" path="students">
-					<c:out value="${oneStudent.firstName}"/>
-					<c:out value="${oneStudent.lastName}"/>
-				</form:option>
-			</c:forEach>
-		</form:select>
-	</form:form>
-	
+	<form action="/dorm/add_student" method="post" >
+		<input type="hidden" name="dorm_id" value="${dorm.id}" />
+		<select name="id">
+		<c:forEach var="stu" items="${students}">
+			<option value="${stu.id}">
+				<c:out value="${stu.firstName}"/>
+				<c:out value="${stu.lastName}"/>
+			</option>
+		</c:forEach>
+		</select>
+		<div>
+			<input type="submit" value="Submit" />
+		</div>
+	</form>
 	
 	<div class="text-center col-6 mx-auto">
 	<table class="table table-light">
@@ -40,9 +42,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="student" items="${dorms}">
+			<c:forEach var="student" items="${dorm.students}">
 				<tr>
-					<td> <a href="/dorm/view/${student.id}">${student.name}</a> </td>
+					<td> ${student.firstName} </td>
 				</tr>
 			</c:forEach>
 		</tbody>

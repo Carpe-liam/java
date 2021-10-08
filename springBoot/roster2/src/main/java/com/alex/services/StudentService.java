@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.alex.models.Dorm;
 import com.alex.models.Student;
 import com.alex.repositories.StudentRepository;
 
@@ -38,6 +39,17 @@ public class StudentService {
         }
     }
 	
+// update student
+    public Student updateStudentDorm(Dorm dorm, Long id) {
+    	Student editStudent = studentRepo.getById(id);
+    	editStudent.setDorm(dorm);
+    	return studentRepo.save(editStudent);
+    }
+
+    
+    
+    
+    
 // delete
     public void deleteStudent(Long id) {
     	studentRepo.deleteById(id);
