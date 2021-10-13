@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>enter title here</title>
+    <title>Create Product</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/jquery/jquery.min.js"></script>
@@ -20,7 +20,27 @@
 <body>
 <div class="container">
 
-<h1> welcome to new prod</h1>
+<h1> New Product</h1>
+
+<div class="col-5 mx-auto">
+	<form:form action="/create_product" method="post" modelAttribute="product">
+		<div class="form-group">
+			<label>Name:</label>
+			<form:input path="name" class="form-control"/>
+		</div>
+		<div class="form-group">
+			<label>Description:</label>
+			<form:textarea path="description" class="form-control"/>
+		</div>
+		<div class="form-group">
+			<label>Price:</label>
+			<form:input path="price" class="form-control"/>
+		</div>
+		<div class="mx-auto text-center">
+			<input class="btn btn-success mt-3" type="submit" value="+ Create"/>
+		</div>
+	</form:form>
+</div>
 
 
 </div>

@@ -2,7 +2,6 @@ package com.alex.models;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Locale.Category;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,13 +35,19 @@ public class Product {
         joinColumns = @JoinColumn(name = "product_id"), 
         inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    
     private List<Category> categories;
     
+    
     public Product() {}
-
-
 	
+	public Product(String name, String description, float price, List<Category> categories) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.categories = categories;
+	}
+
 	public Long getId() {
 		return id;
 	}

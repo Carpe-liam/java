@@ -11,31 +11,43 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Create Category</title>
+    <title>${category.name} View</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-
-	<h1>Create New Category</h1>
+<div class="container col-8 mx-auto">
+   
+   <h1>${category.name} </h1>
+	<a href="/products">Home</a>
 	
-<div class="col-5 mx-auto">
-	<form:form action="/create_category" method="post" modelAttribute="category">
-		<div class="form-group">
-			<label>Name:</label>
-			<form:input path="name" class="form-control"/>
+	<div class="main d-flex justify-content-between">
+		<div>
+			<h5>Products:</h5>
+			<c:forEach var="product" items="${category.products}">
+				<p>-${product.name}</p>
+			</c:forEach>			
 		</div>
-		<div class="mx-auto text-center">
-			<input class="btn btn-success mt-3" type="submit" value="+ Create"/>
+		<div>
+			<h5>Add Product:</h5>
+			<form action="/add_product/${product.id}" method="post">
+				<select name="product_id">
+					<c:forEach var="product" items="${products}">
+					<option value="${product.id}">
+							${product.name}</option>
+					</c:forEach>
+				</select>
+				<div>
+					<input type="submit" value="Submit"/>
+				</div>
+			</form>
 		</div>
-	</form:form>
-</div>
+	</div>
 	
 	
-	
+   
 </div>
 </body>
 </html>
